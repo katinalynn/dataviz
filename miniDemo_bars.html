@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-8"/>
+<html lang="en">
+
+<html>
+	<head>
+        <title>D3 Test</title>
+       <script type='text/javascript' src='http://d3js.org/d3.v2.min.js'></script>
+	<style type="text/css">
+		
+			div.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				background-color: teal;
+				margin-right: 2px;
+			}
+	</style>
+    </head>
+    <body>
+        <script type="text/javascript">
+		var dataset = [];
+		for (var i = 0; i < 25; i++) {
+			var newNumber = Math.round(Math.random() * 30);
+			dataset = dataset.concat(newNumber);
+			}
+		d3.select("body").selectAll("div")
+   		.data(dataset)
+   		.enter()
+    		.append("div")
+    		.attr("class", "bar")
+		.style("height", function(d) {
+   			barHeight = d * 5
+			return barHeight + "px";
+		});
+	</script>
